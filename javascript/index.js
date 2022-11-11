@@ -172,6 +172,12 @@ normalizarTexto(txt)
 
 var number = "3,8,9,8.65,3.6965378,9"
 
+// Ordenar number de menor a mayor
+
+const numberArray = number.split(",").map((num) => parseFloat(num))
+const numberArraySorted = numberArray.sort((a, b) => a - b)
+const numberArraySortedString = numberArraySorted.join(", ")
+
 function mostrarNumeros(number) {
   const tagNumber = document.getElementById("format")
   const numeros = document.createElement("p")
@@ -202,7 +208,7 @@ function mostrarNumeros(number) {
   const asc = document.createElement("p")
   const desc = document.createElement("p")
 
-  const arrayAsc = arrayNumberFloat.sort((a, b) => a - b)
+  const arrayAsc = numberArray.sort((a, b) => a - b)
   const arrayDesc = arrayNumberFloat.sort((a, b) => b - a)
 
   asc.innerHTML = arrayAsc
